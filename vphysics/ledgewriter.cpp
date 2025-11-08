@@ -7,13 +7,13 @@
 #include "cbase.h"
 #include "convert.h"
 
-#include <ivp_surface_manager.hxx>
-#include <ivp_surman_polygon.hxx>
-#include <ivp_template_surbuild.hxx>
-#include <ivp_compact_surface.hxx>
-#include <ivp_compact_ledge.hxx>
+#include "../ivp/ivp_physics/ivp_surface_manager.hxx"
+#include "../ivp/ivp_surface_manager/ivp_surman_polygon.hxx"
+#include "../ivp/ivp_compact_builder/ivp_template_surbuild.hxx"
+#include "../ivp/ivp_surface_manager/ivp_compact_surface.hxx"
+#include "../ivp/ivp_collision/ivp_compact_ledge.hxx"
 
-#include "utlbuffer.h"
+#include "../public/tier1/utlbuffer.h"
 #include "ledgewriter.h"
 
 // gets the max vertex index referenced by a compact ledge

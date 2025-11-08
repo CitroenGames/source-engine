@@ -9,9 +9,9 @@
 #define PHYSICS_WORLD_H
 #pragma once
 
-#include "vphysics_interface.h"
-#include "ivu_types.hxx"
-#include "utlvector.h"
+#include "../public/vphysics_interface.h"
+#include "../ivp/ivp_utility/ivu_types.hxx"
+#include "../public/tier1/utlvector.h"
 
 class IVP_Environment;
 class CSleepObjects;

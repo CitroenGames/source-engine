@@ -546,7 +546,8 @@ def configure(conf):
 			'/Zc:wchar_t',
 			'/GR',
 			'/TP',
-			'/EHsc'
+			'/EHsc',
+			'/FS'
 		]
 
 		if conf.options.BUILD_TYPE == 'debug':

@@ -4,13 +4,11 @@ echo Generating Release Visual Studio Solution
 echo ========================================
 echo.
 
-echo Cleaning previous build and configuration...
-python waf distclean
+echo Cleaning previous configuration...
 if exist build\config.log del build\config.log
 
-echo.
 echo Configuring for Release build...
-python waf configure -T release --prefix=hl2 --build-games=hl2
+python waf configure -T release --prefix=hl2 --build-games=portal
 if errorlevel 1 (
     echo.
     echo ERROR: Configuration failed!
