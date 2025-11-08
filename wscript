@@ -579,13 +579,19 @@ def configure(conf):
 
 	if conf.env.COMPILER_CC == 'gcc':
 		conf.define('COMPILER_GCC', 1)
+		conf.env.append_unique('DEFINES', ['COMPILER_GCC=1'])
 	elif conf.env.COMPILER_CC == 'msvc':
 		conf.define('COMPILER_MSVC', 1)
 		conf.define('MSVC', 1)
+		# Add to DEFINES so they're passed to msvs generator
+		conf.env.append_unique('DEFINES', ['COMPILER_MSVC=1', 'MSVC=1'])
+		
 		if conf.env.DEST_CPU == 'x86':
 			conf.define('COMPILER_MSVC32', 1)
+			conf.env.append_unique('DEFINES', ['COMPILER_MSVC32=1'])
 		elif conf.env.DEST_CPU in ['x86_64', 'amd64']:
 			conf.define('COMPILER_MSVC64', 1)
+			conf.env.append_unique('DEFINES', ['COMPILER_MSVC64=1'])
 
 	if conf.env.COMPILER_CC != 'msvc':
 		conf.check_cc(cflags=cflags, linkflags=linkflags, msg='Checking for required C flags')
