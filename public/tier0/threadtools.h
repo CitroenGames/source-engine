@@ -419,6 +419,12 @@ PLATFORM_INTERFACE bool ThreadInterlockedAssignIf( int32 volatile *, int32 value
 #endif
 
 
+#if defined(COMPILER_MSVC64)
+extern "C" {
+    __int64 __cdecl _InterlockedExchangeAdd64(volatile __int64 *Addend, __int64 Value);
+}
+#pragma intrinsic(_InterlockedExchangeAdd64)
+#endif
 #if defined( USE_INTRINSIC_INTERLOCKED ) && !defined( PLATFORM_64BITS )
 #define TIPTR()
 inline void *ThreadInterlockedExchangePointer( void * volatile *p, void *value )							{ return (void *)( ( intp )ThreadInterlockedExchange( reinterpret_cast<intp volatile *>(p), reinterpret_cast<intp>(value) ) ); }
